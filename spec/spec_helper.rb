@@ -1,1 +1,1 @@
-require './lib/githug.rb'
+require './lib/hghug.rb'

@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'githug/cli'
+require 'hghug/cli'
 
 describe Githug::CLI do
 
