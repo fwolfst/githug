@@ -1,5 +1,5 @@
 require 'thor'
-require 'githug'
+require 'hghug'
 module Githug
   class CLI < Thor
 

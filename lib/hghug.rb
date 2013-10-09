@@ -1,15 +1,15 @@
 require 'grit'
 
-require "githug/extensions/grit/ruby1.9"
+require "hghug/extensions/grit/ruby1.9"
 
 
-require "githug/version"
+require "hghug/version"
 
-require 'githug/ui'
-require 'githug/game'
-require 'githug/profile'
-require 'githug/level'
-require 'githug/repository'
+require 'hghug/ui'
+require 'hghug/game'
+require 'hghug/profile'
+require 'hghug/level'
+require 'hghug/repository'
 
 Githug::UI.in_stream = STDIN
 Githug::UI.out_stream = STDOUT
