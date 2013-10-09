@@ -8,7 +8,7 @@ end
 
 def skip_level
   Hghug::Profile.load.level_bump
-  `githug reset`
+  `hghug reset`
 end
 
 
@@ -17,10 +17,10 @@ describe "The Game" do
   before(:all) do
     @dir = Dir.pwd
     `rake build`
-    `gem install pkg/githug-#{Hghug::VERSION}.gem`
+    `gem install pkg/hghug-#{Hghug::VERSION}.gem`
     FileUtils.rm_rf("/tmp/git_hug")
     Dir.chdir("/tmp")
-    `echo "y" | githug`
+    `echo "y" | hghug`
     Dir.chdir("/tmp/git_hug")
   end
 
@@ -30,17 +30,17 @@ describe "The Game" do
 
   it "should complete the init level" do
     `git init`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the add level" do
     `git add README`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the commit level" do
     `git commit -m "test message"`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
 
@@ -48,7 +48,7 @@ describe "The Game" do
     skip_level #The CI server does not have git config set
     #full_name = `git config --get user.name`.chomp
     #email = `git config --get user.email`.chomp
-    #f = IO::popen('githug', 'w')
+    #f = IO::popen('hghug', 'w')
     #f.puts(full_name)
     #f.puts(email)
     #f.close
@@ -56,137 +56,137 @@ describe "The Game" do
 
   it "should complete the clone level" do
     `git clone https://github.com/Gazler/cloneme`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the clone_to_folder level" do
     `git clone https://github.com/Gazler/cloneme my_cloned_repo`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the ignore level" do
     `echo "*.swp" >> .gitignore`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the status level" do
-    `git ls-files --other --exclude-standard | githug`.should be_solved
+    `git ls-files --other --exclude-standard | hghug`.should be_solved
   end
 
   it "should complete the rm level" do
     file_name = `git status | grep deleted | cut -d " " -f 5`
     `git rm #{file_name}`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the rm cached level" do
     file_name = `git status | grep "new file" | cut -d " " -f 5`
     `git rm --cached #{file_name}`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the stash level" do
     `git stash save`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the rename level" do
     `git mv oldfile.txt newfile.txt`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the log level" do
-    `git log --pretty=short | grep commit | cut -c 8-14 | githug`.should be_solved
+    `git log --pretty=short | grep commit | cut -c 8-14 | hghug`.should be_solved
   end
 
   it "should complete the tag level" do
     `git tag new_tag`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the commit_amend level" do
     `git add forgotten_file.rb`
     `git commit --amend -C HEAD`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the reset level" do
     `git reset HEAD to_commit_second.rb`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the reset_soft level" do
     `git reset --soft HEAD^`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the checkout_file level" do
     `git checkout -- config.rb`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the remove level" do
-    `git remote | githug`.should be_solved
+    `git remote | hghug`.should be_solved
   end
 
   it "should complete the remote_url level" do
-    `git remote -v | tail -2 | head -1 | cut -c 17-52 | githug`.should be_solved
+    `git remote -v | tail -2 | head -1 | cut -c 17-52 | hghug`.should be_solved
   end
 
   it "should complete the pull level" do
     `git pull origin master`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the remote_add level" do
-    `git remote add origin https://github.com/githug/githug`
-    `githug`.should be_solved
+    `git remote add origin https://github.com/hghug/hghug`
+    `hghug`.should be_solved
   end
 
   it "should complete the push level" do
     `git rebase origin/master`
     `git push origin`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the diff level" do
-    `echo "26" | githug`.should be_solved
+    `echo "26" | hghug`.should be_solved
   end
 
   it "should complete the blame level" do
-    `echo "spider man" | githug`.should be_solved
+    `echo "spider man" | hghug`.should be_solved
   end
 
   it "should complete the branch level" do
     `git branch test_code`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the checkout level" do
     `git checkout -b my_branch`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the checkout_tag level" do
     `git checkout v1.2`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the branch_at level" do
     commit = `git log HEAD~1 --pretty=short | head -1 | cut -d " " -f 2`
     `git branch test_branch #{commit}`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should commit the merge level" do
     `git merge feature`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the cherry-pick level" do
     commit = `git log new-feature --oneline  -n 3 | tail -1 | cut -d " " -f 1`
     `git cherry-pick #{commit}`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the rename_commit level" do
@@ -200,7 +200,7 @@ describe "The Game" do
   it "should complete the merge squash level" do
     `git merge --squash long-feature-branch`
     `git commit -m "Merged Long Feature Branch"`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the reorder level" do
@@ -208,7 +208,7 @@ describe "The Game" do
   end
 
   it "should complete the bisect level" do
-    `echo "18ed2ac" | githug`.should be_solved
+    `echo "18ed2ac" | hghug`.should be_solved
   end
 
   it "should complete the stage_lines level" do
@@ -217,18 +217,18 @@ describe "The Game" do
 
   it "should complete the find_old_branch level" do
     `git checkout solve_world_hunger`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the revert level" do
     sleep 1
     `git revert HEAD~1 --no-edit`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the restore level" do
     `git reflog | grep "Restore this commit" | awk '{print $1}' | xargs git checkout`
-    `githug`.should be_solved
+    `hghug`.should be_solved
   end
 
   it "should complete the conflict level" do

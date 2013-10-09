@@ -4,12 +4,12 @@ description "The remote repositories have a url associated to them.  Please ente
 
 setup do
   repo.init
-  repo.remote_add("my_remote_repo", "https://github.com/Gazler/githug")
-  repo.remote_add("remote_location", "https://github.com/githug/not_a_repo")
+  repo.remote_add("my_remote_repo", "https://github.com/Gazler/hghug")
+  repo.remote_add("remote_location", "https://github.com/hghug/not_a_repo")
 end
 
 solution do
-  "https://github.com/githug/not_a_repo" == request("What is the url of the remote repository?")
+  "https://github.com/hghug/not_a_repo" == request("What is the url of the remote repository?")
 end
 
 hint do

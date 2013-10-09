@@ -4,7 +4,7 @@ description "This projects has a remote repository.  Identify it."
 
 setup do
   repo.init
-  repo.remote_add("my_remote_repo", "https://github.com/Gazler/githug")
+  repo.remote_add("my_remote_repo", "https://github.com/Gazler/hghug")
 end
 
 solution do

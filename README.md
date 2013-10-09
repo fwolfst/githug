@@ -1,5 +1,5 @@
 # Hghug
-Git Your Game On [![Build Status](https://travis-ci.org/Gazler/githug.png?branch=master)](https://travis-ci.org/Gazler/githug)
+Git Your Game On [![Build Status](https://travis-ci.org/Gazler/hghug.png?branch=master)](https://travis-ci.org/Gazler/hghug)
 
 ## About
 Hghug is designed to give you a practical way of learning git.  It has a series of levels, each utilizing git commands to ensure a correct answer.
@@ -8,9 +8,9 @@ In this project, it will become hghug, a clone to learn hg instead (or better, a
 ## Installation
 To install Hghug
 
-    gem install githug
+    gem install hghug
 
-After the gem is installed, you can run `githug` where you will be prompted to create a directory.  Hghug should work on Linux, OS X and Windows.
+After the gem is installed, you can run `hghug` where you will be prompted to create a directory.  Hghug should work on Linux, OS X and Windows.
 
 ## Commands
 
@@ -23,18 +23,18 @@ Hghug has 4 commands:
 
 ## Change Log
 
-The change log is available on the wiki.  [Change log](https://github.com/Gazler/githug/wiki/Change-Log)
+The change log is available on the wiki.  [Change log](https://github.com/Gazler/hghug/wiki/Change-Log)
 
 
 ## Contributing
 
-If you want to suggest a level or make a level that has been suggested, check out [the wiki](https://github.com/Gazler/githug/wiki).
+If you want to suggest a level or make a level that has been suggested, check out [the wiki](https://github.com/Gazler/hghug/wiki).
 
- Get yourself on the [contributors list](https://github.com/Gazler/githug/contributors) by doing the following:
+ Get yourself on the [contributors list](https://github.com/Gazler/hghug/contributors) by doing the following:
 
  * Fork the repository
  * Make a level in the levels directory (covered below)
- * Add your level to the LEVELS array inside `lib/githug/level.rb` in a position that makes sense (the "commit" level after the "add" and "init" levels for example)
+ * Add your level to the LEVELS array inside `lib/hghug/level.rb` in a position that makes sense (the "commit" level after the "add" and "init" levels for example)
  * Make sure your level works (covered below)
  * Submit a pull request
 
@@ -111,7 +111,7 @@ This will copy the contents of a repository specified in the levels folder for y
  * cd "yourlevel"
  * git init
  * some git stuff
- * **important** rename ".git" to ".githug" so it does not get treated as a submodule
+ * **important** rename ".git" to ".hghug" so it does not get treated as a submodule
  * cd "../"
  * git add "yourlevel"
 
@@ -122,10 +122,10 @@ After doing this, your level should be able to copy the contents from that git r
 The easiest way to test a level is:
 
  * change into your git_hug repository
- * Run `githug reset PATH_TO_YOUR_LEVEL
+ * Run `hghug reset PATH_TO_YOUR_LEVEL
  * Solve the level
- * Run `githug test PATH_TO_YOUR_LEVEL
+ * Run `hghug test PATH_TO_YOUR_LEVEL
 
-Please note that the `githug test` command can be run as `githug test --errors` to get an error stacktrace from your solve method.
+Please note that the `hghug test` command can be run as `hghug test --errors` to get an error stacktrace from your solve method.
 
-It would be ideal if you add an integration test for your level.  These tests live in `spec/githug_spec` and **must** be run in order.  If you add a level but do not add a test, please add a simple `skip_level` test case similar to the `contribute` level.
+It would be ideal if you add an integration test for your level.  These tests live in `spec/hghug_spec` and **must** be run in order.  If you add a level but do not add a test, please add a simple `skip_level` test case similar to the `contribute` level.

@@ -43,7 +43,7 @@ module Hghug
 
     def init_from_level
       FileUtils.cp_r("#{level_path}/.", ".")
-      FileUtils.mv(".githug", ".git")
+      FileUtils.mv(".hghug", ".git")
     end
 
     def difficulty(num)

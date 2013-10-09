@@ -55,7 +55,7 @@ describe Hghug::Game do
       @profile.stub(:current_attempts).and_return(3)
       @level.stub(:solve).and_return(false)
       Hghug::UI.should_receive(:error).with("Sorry, this solution is not quite right!")
-      Hghug::UI.should_receive(:error).with("Don't forget you can type `githug hint` for a hint and `githug reset` to reset the current level")
+      Hghug::UI.should_receive(:error).with("Don't forget you can type `hghug hint` for a hint and `hghug reset` to reset the current level")
       @game.play_level
     end
 

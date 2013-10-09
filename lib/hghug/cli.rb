@@ -67,7 +67,7 @@ module Hghug
         end
 
         unless File.basename(Dir.pwd) == "git_hug"
-          if UI.ask("No githug directory found, do you wish to create one?")
+          if UI.ask("No hghug directory found, do you wish to create one?")
             Dir.mkdir("./git_hug")
             Dir.chdir("git_hug")
           else

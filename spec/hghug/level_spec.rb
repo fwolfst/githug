@@ -11,7 +11,7 @@ setup do
   "test"
 end
 solution do
-  Grit::Repo.new("githug/notadir")
+  Grit::Repo.new("hghug/notadir")
 end
 
 hints [
@@ -175,7 +175,7 @@ end
   describe "init_from_level" do
     it "should copy the files from the level folder" do
       FileUtils.should_receive(:cp_r).with("#{@level.level_path}/.", ".")
-      FileUtils.should_receive(:mv).with(".githug", ".git")
+      FileUtils.should_receive(:mv).with(".hghug", ".git")
       @level.init_from_level
     end
   end

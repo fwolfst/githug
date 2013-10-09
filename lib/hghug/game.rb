@@ -25,7 +25,7 @@ module Hghug
             profile.save
 
             if (profile.current_attempts > 2 && profile.current_attempts % 3 == 0)
-              UI.error "Don't forget you can type `githug hint` for a hint and `githug reset` to reset the current level"
+              UI.error "Don't forget you can type `hghug hint` for a hint and `hghug reset` to reset the current level"
             end
 
             UI.puts level.full_description
