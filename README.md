@@ -1,9 +1,11 @@
 # Hghug
-Git Your Game On [![Build Status](https://travis-ci.org/Gazler/hghug.png?branch=master)](https://travis-ci.org/Gazler/hghug)
+H(u)g Your Game On [![Build Status](https://travis-ci.org/Gazler/hghug.png?branch=master)](https://travis-ci.org/Gazler/hghug)
 
 ## About
-Hghug is designed to give you a practical way of learning git.  It has a series of levels, each utilizing git commands to ensure a correct answer.
-In this project, it will become hghug, a clone to learn hg instead (or better, as well).
+Githug was designed to give you a practical way of learning git and was conceived by Gary 'Gazler' Rennie.
+Hghug is a bold clone of Githug.  All credits should go to Gazler and his Githug.
+During the adaptation to hg (mercurial), all occurences of 'Githug' and 'githug' were replaces by 'Hghug' and 'hghug'.
+Hghug has a series of levels, each utilizing hg commands to ensure a correct answer.
 
 ## Installation
 To install Hghug
@@ -66,7 +68,7 @@ solution do
 end
 
 hint do
-  puts "You can type `git` in your shell to get a list of available git commands"
+  puts "You can type `hg` in your shell to get a list of available hg commands"
 end
 ```
 
@@ -76,8 +78,8 @@ You can also include multiple hints like this:
 
 ```ruby
 hints [
-  "You can type `git` in your shell to get a list of available git commands",
-  "Check the man for `git add`"]
+  "You can type `hg` in your shell to get a list of available hg commands",
+  "Check the man for `hg add`"]
 ```
 
  **note** Because `solution` is a Proc, you cannot prematurely return out of it and as a result, must put an explicit return on the last line of the solution block.
@@ -90,11 +92,11 @@ solution do
 end
 ```
 
- By default, `setup` will remove all files from the game folder.  You do not need to include a setup method if you don't want an initial git repository (if you are testing `git init` or only checking an answer.)
+ By default, `setup` will remove all files from the game folder.  You do not need to include a setup method if you don't want an initial hg repository (if you are testing `hg init` or only checking an answer.)
 
  You can call `repo.init` to initialize an empty repository.
 
- All methods called on `repo` are sent to the [grit gem](https://github.com/mojombo/grit) if the method does not exist, and you can use that for most git related commands (`repo.add`, `repo.commit`, etc.)
+ All methods called on `repo` are sent to the [grit gem](https://github.com/mojombo/grit) if the method does not exist, and you can use that for most hg related commands (`repo.add`, `repo.commit`, etc.)
 
 
 Another method exists called `init_from_level` and it is used like so:
@@ -109,19 +111,19 @@ This will copy the contents of a repository specified in the levels folder for y
 
  * mkdir "yourlevel"
  * cd "yourlevel"
- * git init
- * some git stuff
- * **important** rename ".git" to ".hghug" so it does not get treated as a submodule
+ * hg init
+ * some hg stuff
+ * **important** rename ".hg" to ".hghug" so it does not get treated as a submodule
  * cd "../"
- * git add "yourlevel"
+ * hg add "yourlevel"
 
-After doing this, your level should be able to copy the contents from that git repository and use those for your level.  You can see the "blame" level for an example of this.
+After doing this, your level should be able to copy the contents from that hg repository and use those for your level.  You can see the "blame" level for an example of this.
 
 ## Testing Levels
 
 The easiest way to test a level is:
 
- * change into your git_hug repository
+ * change into your hg_hug repository
  * Run `hghug reset PATH_TO_YOUR_LEVEL
  * Solve the level
  * Run `hghug test PATH_TO_YOUR_LEVEL
