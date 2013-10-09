@@ -1,4 +1,4 @@
-module Githug
+module Hghug
   class Repository
 
     attr_accessor :grit

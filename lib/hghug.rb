@@ -11,5 +11,5 @@ require 'hghug/profile'
 require 'hghug/level'
 require 'hghug/repository'
 
-Githug::UI.in_stream = STDIN
-Githug::UI.out_stream = STDOUT
+Hghug::UI.in_stream = STDIN
+Hghug::UI.out_stream = STDOUT

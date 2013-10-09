@@ -4,7 +4,7 @@ require "hghug/version"
 
 Gem::Specification.new do |s|
   s.name        = 'hghug'
-  s.version     = Githug::VERSION
+  s.version     = Hghug::VERSION
   s.authors     = ['Gary Rennie', 'Felix Wolfsteller']
   s.email       = ['webmaster@gazler.com', 'felix.wolfsteller@gmail.com']
   s.homepage    = ''

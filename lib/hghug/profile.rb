@@ -1,5 +1,5 @@
 require 'yaml'
-module Githug
+module Hghug
   class Profile
     PROFILE_FILE = ".profile.yml"
 

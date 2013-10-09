@@ -1,6 +1,6 @@
 require 'thor'
 require 'hghug'
-module Githug
+module Hghug
   class CLI < Thor
 
 
@@ -9,7 +9,7 @@ module Githug
     desc :play, "Initialize the game"
 
     def play
-      UI.word_box("Githug")
+      UI.word_box("Hghug")
       make_directory
       game = Game.new
       game.play_level
@@ -19,7 +19,7 @@ module Githug
     method_option :errors, :type => :boolean, :default => false
 
     def test(path)
-      UI.word_box("Githug")
+      UI.word_box("Hghug")
       make_directory
       level = Level.load_from_file(path)
       game = Game.new
@@ -42,7 +42,7 @@ module Githug
       else
         level = load_level
       end
-      UI.word_box("Githug")
+      UI.word_box("Hghug")
       if level
         UI.puts("resetting level")
         level.setup_level

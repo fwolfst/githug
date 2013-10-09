@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require 'hghug/cli'
 
-Githug::CLI.start
+Hghug::CLI.start

@@ -1,4 +1,4 @@
-module Githug
+module Hghug
   module UI
 
     @@out_stream = STDOUT

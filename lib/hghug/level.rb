@@ -1,4 +1,4 @@
-module Githug
+module Hghug
   class Level
     include UI
 
@@ -99,7 +99,7 @@ module Githug
     end
 
     def show_hint
-      UI.word_box("Githug")
+      UI.word_box("Hghug")
       profile = Profile.load
       current_hint_index = profile.current_hint_index
       if @hints

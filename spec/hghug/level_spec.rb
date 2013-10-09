@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'grit'
 
-describe Githug::Level do
+describe Hghug::Level do
 
   before(:each) do
     @file = <<-eof
@@ -24,16 +24,16 @@ end
     eof
     File.stub(:exists?).and_return(true)
     File.stub(:read).and_return(@file)
-    @level = Githug::Level.load("init")
+    @level = Hghug::Level.load("init")
     @repo = mock
     @repo.stub(:reset)
-    Githug::Repository.stub(:new).and_return(@repo)
-    Githug::UI.stub(:puts)
-    Githug::UI.stub(:print)
+    Hghug::Repository.stub(:new).and_return(@repo)
+    Hghug::UI.stub(:puts)
+    Hghug::UI.stub(:print)
   end
 
   it "should mixin UI" do
-    Githug::Level.ancestors.should include(Githug::UI)
+    Hghug::Level.ancestors.should include(Githug::UI)
   end
 
 
@@ -42,14 +42,14 @@ end
     it "should load the level" do
       File.stub(:dirname).and_return("")
       File.should_receive(:read).with('/../../levels/init.rb').and_return(@file)
-      level = Githug::Level.load("init")
+      level = Hghug::Level.load("init")
       level.instance_variable_get("@difficulty").should eql(1)
       level.instance_variable_get("@description").should eql("A test description")
     end
 
     it "should return false if the level does not exist" do
       File.stub(:exists?).and_return(false)
-      Githug::Level.load(1).should eql(false)
+      Hghug::Level.load(1).should eql(false)
     end
 
   end
@@ -58,14 +58,14 @@ end
     it "should load the level" do
       File.stub(:dirname).and_return("")
       File.should_receive(:read).with('/foo/bar/test/level.rb').and_return(@file)
-      level = Githug::Level.load_from_file("/foo/bar/test/level.rb")
+      level = Hghug::Level.load_from_file("/foo/bar/test/level.rb")
       level.instance_variable_get("@difficulty").should eql(1)
       level.instance_variable_get("@description").should eql("A test description")
     end
 
     it "should return false if the level does not exist" do
       File.stub(:exists?).and_return(false)
-      Githug::Level.load_from_file("/foo/bar/test/level.rb").should eql(false)
+      Hghug::Level.load_from_file("/foo/bar/test/level.rb").should eql(false)
     end
   end
 
@@ -73,7 +73,7 @@ end
 
     it "should return false if the level does not exist" do
       File.stub(:exists?).and_return(false)
-      Githug::Level.setup("/foo/bar/test/level.rb").should eql(false)
+      Hghug::Level.setup("/foo/bar/test/level.rb").should eql(false)
     end
 
   end
@@ -103,10 +103,10 @@ end
   describe "full_description" do
 
     it "should display a full description" do
-      Githug::UI.stub(:puts)
-      Githug::UI.should_receive(:puts).with("Level: 1")
-      Githug::UI.should_receive(:puts).with("Difficulty: *")
-      Githug::UI.should_receive(:puts).with("A test description")
+      Hghug::UI.stub(:puts)
+      Hghug::UI.should_receive(:puts).with("Level: 1")
+      Hghug::UI.should_receive(:puts).with("Difficulty: *")
+      Hghug::UI.should_receive(:puts).with("A test description")
       @level.full_description
     end
 
@@ -130,7 +130,7 @@ end
 
     it "should initialize a repository when repo is called" do
       @level.repo.should equal(@repo)
-      Githug::Repository.should_not_receive(:new)
+      Hghug::Repository.should_not_receive(:new)
       @level.repo.should equal(@repo)
     end
 
@@ -145,7 +145,7 @@ end
 
     before(:each) do
       @profile = mock.as_null_object
-      Githug::Profile.stub(:load).and_return(@profile)
+      Hghug::Profile.stub(:load).and_return(@profile)
       @profile.stub(:current_hint_index).and_return(0,0,1,0)
     end
 

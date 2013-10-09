@@ -1,20 +1,20 @@
-# Githug
+# Hghug
 Git Your Game On [![Build Status](https://travis-ci.org/Gazler/githug.png?branch=master)](https://travis-ci.org/Gazler/githug)
 
 ## About
-Githug is designed to give you a practical way of learning git.  It has a series of levels, each utilizing git commands to ensure a correct answer.
+Hghug is designed to give you a practical way of learning git.  It has a series of levels, each utilizing git commands to ensure a correct answer.
 In this project, it will become hghug, a clone to learn hg instead (or better, as well).
 
 ## Installation
-To install Githug
+To install Hghug
 
     gem install githug
 
-After the gem is installed, you can run `githug` where you will be prompted to create a directory.  Githug should work on Linux, OS X and Windows.
+After the gem is installed, you can run `githug` where you will be prompted to create a directory.  Hghug should work on Linux, OS X and Windows.
 
 ## Commands
 
-Githug has 4 commands:
+Hghug has 4 commands:
 
  * play - This is the default command and it will check your solution for the current level.
  * hint - Gives you a hint (if available) for the current level
@@ -46,7 +46,7 @@ If you want to suggest a level or make a level that has been suggested, check ou
 
 ## Writing Levels
 
-Githug has a DSL for writing levels
+Hghug has a DSL for writing levels
 
 An example level:
 

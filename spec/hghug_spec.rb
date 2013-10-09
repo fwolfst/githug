@@ -7,7 +7,7 @@ RSpec::Matchers.define :be_solved do
 end
 
 def skip_level
-  Githug::Profile.load.level_bump
+  Hghug::Profile.load.level_bump
   `githug reset`
 end
 
@@ -17,7 +17,7 @@ describe "The Game" do
   before(:all) do
     @dir = Dir.pwd
     `rake build`
-    `gem install pkg/githug-#{Githug::VERSION}.gem`
+    `gem install pkg/githug-#{Hghug::VERSION}.gem`
     FileUtils.rm_rf("/tmp/git_hug")
     Dir.chdir("/tmp")
     `echo "y" | githug`

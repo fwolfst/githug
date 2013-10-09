@@ -1,4 +1,4 @@
-module Githug
+module Hghug
   class Game
 
     attr_accessor :profile
@@ -10,7 +10,7 @@ module Githug
     def play_level
       solve = true
       if profile.level.nil?
-        UI.puts("Welcome to Githug")
+        UI.puts("Welcome to Hghug")
         solve = false
         level_bump
       else

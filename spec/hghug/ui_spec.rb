@@ -2,10 +2,10 @@ require 'spec_helper'
 
 require 'spec_helper'
 
-describe Githug::UI do
+describe Hghug::UI do
 
   before(:each) do
-    @ui = Githug::UI
+    @ui = Hghug::UI
     @out = StringIO.new
     @in = StringIO.new
     @ui.out_stream = @out
@@ -36,10 +36,10 @@ describe Githug::UI do
   it "should make a wordbox" do
     word_box = <<-eof
 ********************************************************************************
-*                                    Githug                                    *
+*                                    Hghug                                    *
 ********************************************************************************
     eof
-    @ui.word_box("Githug")
+    @ui.word_box("Hghug")
     @out.string.should eql(word_box)
   end
 

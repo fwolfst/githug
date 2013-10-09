@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Githug::Repository do
+describe Hghug::Repository do
 
   before(:each) do
     @grit = mock
     Grit::Repo.stub(:new).and_return(@grit)
-    @repository = Githug::Repository.new
+    @repository = Hghug::Repository.new
     @repository.stub(:create_gitignore)
   end
 
@@ -13,19 +13,19 @@ describe Githug::Repository do
 
     it "should call grit on initialize" do
       Grit::Repo.should_receive(:new).with(".").and_return(@grit)
-      repo = Githug::Repository.new
+      repo = Hghug::Repository.new
       repo.grit.should equal(@grit)
     end
 
     it "should contain a nil grit if the repo is invalid" do
       Grit::Repo.should_receive(:new).and_raise(Grit::InvalidGitRepositoryError)
-      repo = Githug::Repository.new
+      repo = Hghug::Repository.new
       repo.grit.should equal(nil)
     end
 
     it "should initialize with a location" do
       Grit::Repo.should_receive(:new).with("test").and_return(@grit)
-      repo = Githug::Repository.new("test")
+      repo = Hghug::Repository.new("test")
     end
 
   end
