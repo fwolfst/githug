@@ -1,4 +1,4 @@
-Copyright (c) 2013  Gary 'Gazler' Rennie
+Copyright (c) 2013  Gary 'Gazler' Rennie, Felix Wolfsteller
 
 MIT License
 
