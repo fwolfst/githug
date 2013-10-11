@@ -43,6 +43,7 @@ module Hghug
 
     def init_from_level
       FileUtils.cp_r("#{level_path}/.", ".")
+      # Some TODO here.
       FileUtils.mv(".hghug", ".git")
     end
 
@@ -84,7 +85,7 @@ module Hghug
       @setup.call if @setup
     end
 
-    def repo(location = "")
+    def repo(location = ".")
       @repo ||= Repository.new(location)
     end
 
