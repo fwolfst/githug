@@ -4,36 +4,36 @@ module Hghug
     attr_accessor :grit
 
     def initialize(location = ".")
-      @grit = Grit::Repo.new(location)
-    rescue Grit::InvalidGitRepositoryError
-      @grit = nil
+      @grit = Mercurial::Repository.open(location)
+      #rescue Grit::InvalidGitRepositoryError
+      #@grit = nil
     end
 
     def reset
       dont_delete = ["..", ".", ".profile.yml"]
-      if File.basename(Dir.pwd) == "git_hug"
+      if File.basename(Dir.pwd) == "hg_hug"
         Dir.entries(Dir.pwd).each do |file|
           FileUtils.rm_rf(file) unless dont_delete.include?(file)
         end
       end
-      create_gitignore
+      create_hgignore
     end
 
-    def create_gitignore
-      Dir.chdir("git_hug") if File.exists?("./git_hug")
-      File.open(".gitignore", "w") do |file|
+    def create_hgignore
+      Dir.chdir("hg_hug") if File.exists?("./hg_hug")
+      File.open(".hgignore", "w") do |file|
         file.puts(".profile.yml")
-        file.puts(".gitignore")
+        file.puts(".hgignore")
       end
     end
 
     def valid?
-      !@grit.nil?
+      !@grit.nil? and @grit.verify and File.exists?(@grit.dothg_path)
     end
 
-    # Initialize a Git repo. If the repo already exists, do nothing.
+    # Initialize a hg repo. If the repo already exists, do nothing.
     def init(location = ".")
-      @grit = Grit::Repo.init(location)
+      @grit = Mercurial::Repository.create(location)
     end
 
     def method_missing(method, *args, &block)
