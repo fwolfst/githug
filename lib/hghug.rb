@@ -1,4 +1,4 @@
-require 'grit'
+require 'mercurial-ruby'
 
 require "hghug/extensions/grit/ruby1.9"
 
@@ -13,3 +13,7 @@ require 'hghug/repository'
 
 Hghug::UI.in_stream = STDIN
 Hghug::UI.out_stream = STDOUT
+
+Mercurial.configure do |conf|
+    conf.hg_binary_path = `which hg`
+end
