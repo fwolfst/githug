@@ -61,15 +61,15 @@ module Hghug
 
 
       def make_directory
-        if File.exists?("./git_hug")
-          UI.puts "Please change into the git_hug directory"
+        if File.exists?("./hg_hug")
+          UI.puts "Please change into the hg_hug directory"
           exit
         end
 
-        unless File.basename(Dir.pwd) == "git_hug"
+        unless File.basename(Dir.pwd) == "hg_hug"
           if UI.ask("No hghug directory found, do you wish to create one?")
-            Dir.mkdir("./git_hug")
-            Dir.chdir("git_hug")
+            Dir.mkdir("./hg_hug")
+            Dir.chdir("hg_hug")
           else
             UI.puts("Exiting")
             exit
