@@ -18,10 +18,10 @@ describe "The Game" do
     @dir = Dir.pwd
     `rake build`
     `gem install pkg/hghug-#{Hghug::VERSION}.gem`
-    FileUtils.rm_rf("/tmp/git_hug")
+    FileUtils.rm_rf("/tmp/hg_hug")
     Dir.chdir("/tmp")
     `echo "y" | hghug`
-    Dir.chdir("/tmp/git_hug")
+    Dir.chdir("/tmp/hg_hug")
   end
 
   after(:all) do
@@ -29,17 +29,17 @@ describe "The Game" do
   end
 
   it "should complete the init level" do
-    `git init`
+    `hg init`
     `hghug`.should be_solved
   end
 
   it "should complete the add level" do
-    `git add README`
+    `hg add README`
     `hghug`.should be_solved
   end
 
   it "should complete the commit level" do
-    `git commit -m "test message"`
+    `hg commit -m "test message"`
     `hghug`.should be_solved
   end
 
@@ -65,7 +65,7 @@ describe "The Game" do
   end
 
   it "should complete the ignore level" do
-    `echo "*.swp" >> .gitignore`
+    `echo "*.swp" >> .hgignore`
     `hghug`.should be_solved
   end
 

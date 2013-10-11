@@ -10,20 +10,20 @@ describe Hghug::CLI do
   end
 
   it "should print the logo" do
-    Hghug::UI.should_receive(:word_box).with("Githug")
+    Hghug::UI.should_receive(:word_box).with("Hghug")
     @cli.stub(:make_directory)
     @cli.play
   end
 
   it "should create a directory if one does not exist" do
     Hghug::UI.stub(:ask).and_return(true)
-    Dir.should_receive(:mkdir).with("./git_hug")
-    Dir.should_receive(:chdir).with("git_hug")
+    Dir.should_receive(:mkdir).with("./hg_hug")
+    Dir.should_receive(:chdir).with("hg_hug")
     @cli.make_directory
   end
 
   it "should not make a directory if you are in the game directory" do
-    Dir.stub(:pwd).and_return("/home/git_hug")
+    Dir.stub(:pwd).and_return("/home/hg_hug")
     Hghug::UI.should_not_receive(:ask)
     @cli.make_directory
   end
@@ -35,7 +35,7 @@ describe Hghug::CLI do
 
   it "should prompt to change into the directory if it exists" do
     File.stub(:exists?).and_return(true)
-    Hghug::UI.should_receive(:puts).with("Please change into the git_hug directory")
+    Hghug::UI.should_receive(:puts).with("Please change into the hg_hug directory")
     lambda {@cli.make_directory}.should raise_error(SystemExit)
   end
 
@@ -72,7 +72,7 @@ describe Hghug::CLI do
       it "should reset the current level" do
         @level.should_receive(:setup_level)
         @level.should_receive(:full_description)
-        Hghug::UI.should_receive(:word_box).with("Githug")
+        Hghug::UI.should_receive(:word_box).with("Hghug")
         Hghug::UI.should_receive(:puts).with("resetting level")
         @cli.reset
       end
@@ -88,7 +88,7 @@ describe Hghug::CLI do
       it "should reset the level with a path" do
         @level.should_receive(:setup_level)
         @level.should_receive(:full_description)
-        Hghug::UI.should_receive(:word_box).with("Githug")
+        Hghug::UI.should_receive(:word_box).with("Hghug")
         Hghug::UI.should_receive(:puts).with("resetting level")
         @cli.reset("/foo/bar/level.rb")
       end
