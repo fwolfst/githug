@@ -3,7 +3,7 @@ module Hghug
 
     attr_accessor :grit
 
-    def initialize(location = ".")
+    def initialize(location = '.')
       Mercurial.configure do |conf|
           conf.hg_binary_path = '/usr/bin/hg'
       end
@@ -13,8 +13,8 @@ module Hghug
     end
 
     def reset
-      dont_delete = ["..", ".", ".profile.yml"]
-      if File.basename(Dir.pwd) == "hg_hug"
+      dont_delete = ['..', '.', '.profile.yml']
+      if File.basename(Dir.pwd) == 'hg_hug'
         Dir.entries(Dir.pwd).each do |file|
           FileUtils.rm_rf(file) unless dont_delete.include?(file)
         end
@@ -23,10 +23,11 @@ module Hghug
     end
 
     def create_hgignore
-      Dir.chdir("hg_hug") if File.exists?("./hg_hug")
-      File.open(".hgignore", "w") do |file|
-        file.puts(".profile.yml")
-        file.puts(".hgignore")
+      Dir.chdir('hg_hug') if File.exists?('./hg_hug')
+      File.open('.hgignore', 'w') do |file|
+        file.puts('syntax: glob')
+        file.puts('.profile.yml')
+        file.puts('.hgignore')
       end
     end
 
