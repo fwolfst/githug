@@ -4,7 +4,7 @@ describe Hghug::Repository do
 
   before(:each) do
     @grit = mock
-    Grit::Repo.stub(:new).and_return(@grit)
+    Mercurial::Repository.stub(:new).and_return(@grit)
     @repository = Hghug::Repository.new
     @repository.stub(:create_hgignore)
   end
@@ -12,19 +12,19 @@ describe Hghug::Repository do
   describe "initialize" do
 
     it "should call grit on initialize" do
-      Grit::Repo.should_receive(:new).with(".").and_return(@grit)
+      Mercurial::Repository.should_receive(:new).with(".").and_return(@grit)
       repo = Hghug::Repository.new
       repo.grit.should equal(@grit)
     end
 
     it "should contain a nil grit if the repo is invalid" do
-      Grit::Repo.should_receive(:new).and_raise(Grit::InvalidGitRepositoryError)
+      Mercurial::Repository.should_receive(:new).and_raise(Grit::InvalidGitRepositoryError)
       repo = Hghug::Repository.new
       repo.grit.should equal(nil)
     end
 
     it "should initialize with a location" do
-      Grit::Repo.should_receive(:new).with("test").and_return(@grit)
+      Mercurial::Repository.should_receive(:new).with("test").and_return(@grit)
       repo = Hghug::Repository.new("test")
     end
 
@@ -76,7 +76,7 @@ describe Hghug::Repository do
   describe "init" do
     it "should not add and commit hgignore if prompted" do
       @repo = mock
-      Grit::Repo.should_receive(:init).with(".").and_return(@repo)
+      Mercurial::Repository.should_receive(:init).with(".").and_return(@repo)
       @repository.init
     end
   end
