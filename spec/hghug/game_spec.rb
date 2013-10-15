@@ -25,7 +25,7 @@ describe Hghug::Game do
     @level.should_not_receive(:solve)
     @profile.stub(:level).and_return(nil)
     @profile.should_receive(:level_bump)
-    Hghug::UI.should_receive(:puts).with("Welcome to Githug")
+    Hghug::UI.should_receive(:puts).with("Welcome to Hghug")
     @game.play_level
   end
 
