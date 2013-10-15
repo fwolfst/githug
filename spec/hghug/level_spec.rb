@@ -33,7 +33,7 @@ end
   end
 
   it "should mixin UI" do
-    Hghug::Level.ancestors.should include(Githug::UI)
+    Hghug::Level.ancestors.should include(Hghug::UI)
   end
 
 
