@@ -42,8 +42,9 @@ If you want to suggest a level or make a level that has been suggested, check ou
 
 ## Todo List
 
- * A better way of returning from the solution block
+ * A better way of returning from the solution block.
  * A follow up to the level, more information on a specific command, etc.
+ * Better way to configure mercurial-ruby.
  * More levels!
 
 ## Writing Levels
