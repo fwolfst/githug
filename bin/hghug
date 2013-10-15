@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
 require 'hghug/cli'
-
+require 'mercurial-ruby'
+Mercurial.configure do |conf|                                                                                                
+  conf.hg_binary_path = '/usr/bin/hg'                                                                                     
+end
 Hghug::CLI.start
