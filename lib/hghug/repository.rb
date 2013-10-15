@@ -4,8 +4,11 @@ module Hghug
     attr_accessor :grit
 
     def initialize(location = ".")
+      Mercurial.configure do |conf|
+          conf.hg_binary_path = '/usr/bin/hg'
+      end
       @grit = Mercurial::Repository.open(location)
-      #rescue Grit::InvalidGitRepositoryError
+      #rescue Mercurial::Error
       #@grit = nil
     end
 
