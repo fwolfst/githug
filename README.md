@@ -3,7 +3,8 @@ H(u)g Your Game On [![Build Status](https://travis-ci.org/Gazler/hghug.png?branc
 
 ## About
 Githug was designed to give you a practical way of learning git and was conceived by Gary 'Gazler' Rennie.
-Hghug is a bold clone of Githug.  All credits should go to Gazler and his Githug.
+Hghug is a bold clone of Githug, meant to learn mercurial/hg.  All credits should go to Gazler and his Githug, and all the contributors.
+Gazler pointed out that especially the level-contributors should be praised, too.
 During the adaptation to hg (mercurial), all occurences of 'Githug' and 'githug' were replaces by 'Hghug' and 'hghug'.
 Hghug has a series of levels, each utilizing hg commands to ensure a correct answer.
 
@@ -19,8 +20,8 @@ After the gem is installed, you can run `hghug` where you will be prompted to cr
 Hghug has 4 commands:
 
  * play - This is the default command and it will check your solution for the current level.
- * hint - Gives you a hint (if available) for the current level
- * reset - Reset the current level
+ * hint - Gives you a hint (if available) for the current level.
+ * reset - Reset the current level.
  * test - Used to test levels in development, please see the Testing Levels section.
 
 ## Change Log
